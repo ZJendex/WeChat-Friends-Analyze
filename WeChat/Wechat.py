@@ -4,7 +4,7 @@
 # last update:  12/8/2019
 import itchat
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 
 def main():
@@ -33,17 +33,16 @@ def main():
         if checker < 5:
             friend_province.pop(friend_provinceNum.index(checker))
             friend_provinceNum.pop(friend_provinceNum.index(checker))
-            #friend_provinceNum[friend_province.index('')] += 1
-
+            friend_provinceNum[friend_province.index('')] += 1
+    
+    #Delete the friends who didn't sign their location
     # empt_n = friend_province.index('')
     # friend_province.pop(empt_n)
     # friend_provinceNum.pop(empt_n)
 
-    #friend_province[friend_province.index('')] = '其他'
+    friend_province[friend_province.index('')] = '其他'
 
-    # friends_location = dict(zip(friend_province, friend_provinceNum))
-
-    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+    # First Pie chart for people's location
     labels = friend_province
     sizes = friend_provinceNum
 
@@ -53,9 +52,9 @@ def main():
 
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-    plt.savefig('Province.png')
+    plt.savefig('Province Comparision.png')
 
-    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+    # Second Pie chart for sex of friends
     labels = 'male', 'female'
     sizes = [male, female]
     explode = (0, 0.1)  # only "explode" the 2nd slice
@@ -66,9 +65,9 @@ def main():
 
     ax2.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-    plt.savefig('男女比例.png')
+    plt.savefig('Sexual Proportion.png')
 
-    print('文件已保存')
+    print('Save completed')
     plt.show()
 
 
